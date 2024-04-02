@@ -27,7 +27,7 @@ public class batchesmissingpayload {
 	    	
 			//List<Map<String, String>>map = ExcelReaderRest.getData(URLs.Excelpath,"missing batch");
 			
-			List<Map<String, String>>map = ExcelReader_Rest.getData(URLs.BatchModuleExcelpath,"missing batch");
+			List<Map<String, String>>map = ExcelReader_Rest.getData(URLs.BatchModuleExcelpath,"missingbatch");
 			for (Map<String, String> row : map) {
 				
 				String batchdescription = row.get("batchDescription");

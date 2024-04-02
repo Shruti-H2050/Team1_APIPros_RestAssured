@@ -27,7 +27,7 @@ public class batchespojo {
     	
 	//	List<Map<String, String>>map = ExcelReaderRest.getData(URLs.Excelpath,"create program");
     	
-		List<Map<String, String>>map = ExcelReader_Rest.getData(URLs.BatchModuleExcelpath,"create program");
+		List<Map<String, String>>map = ExcelReader_Rest.getData(URLs.BatchModuleExcelpath,"createprogram");
 		for (Map<String, String> row : map) {
 			
 			String batchdescription = row.get("batchDescription");

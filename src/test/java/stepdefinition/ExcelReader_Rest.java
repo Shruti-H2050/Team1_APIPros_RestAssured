@@ -18,6 +18,7 @@ public class ExcelReader_Rest {
 
 	public static List<Map<String, String>> getData(String excelFilePath, String sheetName)
             throws IOException, InvalidFormatException {
+		System.out.println(sheetName);
         Workbook workbook = WorkbookFactory.create(new File(excelFilePath));
         Sheet sheet = workbook.getSheet(sheetName);
         List<Map<String, String>> data = readSheet(sheet);

@@ -27,7 +27,7 @@ public class URLs {
 	
 	//program Module
 	
-	public static String PgmModuleExcelpath = "./src/test/resources/TestData/TestData.xlsx";
+	public static String PgmModuleExcelpath = "./src/test/resources/TestData/ProgramTestsData.xlsx";
 	public static String saveProgram = "/saveprogram";
 	public static String invalsaveProgram = "/savegram";
 	public static String allPrograms = "/allPrograms";
@@ -47,7 +47,7 @@ public class URLs {
 	public static String getbatchprogramidendpoint="/batches/program/16241";
 	public static String updatebatchidendpoint="/batches/";
 	public static String deletebatchidendpoint="/batches/";
-	public static String BatchModuleExcelpath = "./src/test/resources/TestData/BatchTestData.xlsx";		
+	public static String BatchModuleExcelpath = "./src/test/resources/TestData/BatchTestsData.xlsx";		
 
 	public static String invalidpostcreateendpoint="/batches";
 	public static String invalidbatchid="/batches/batchId/";

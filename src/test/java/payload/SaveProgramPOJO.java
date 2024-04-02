@@ -1,16 +1,21 @@
 package payload;
 
-import endpoints.URLs;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.cucumber.core.internal.com.fasterxml.jackson.databind.ObjectMapper;
+import endpoints.URLs;
 import io.cucumber.core.internal.com.fasterxml.jackson.databind.exc.InvalidFormatException;
-import stepdefinition.ExcelReader_Rest;
+
+/*
+ * This is a POJO Class for program creation
+ * 
+ */
 
 public class SaveProgramPOJO {
-static String Jsonbody;
+	
+	static String Jsonbody;
 	
 	private String programName;
 	private String programDescription;
@@ -21,8 +26,6 @@ static String Jsonbody;
 	
 	public static void  programmodule() throws InvalidFormatException, IOException {
 		
-		
-		//List<Map<String, String>>map = ExcelReaderRest.getData(URLs.PgmModuleExcelpath,"saveprogram");
 		
 		List<Map<String, String>>map = ExcelReader_Rest.getData(URLs.PgmModuleExcelpath,"saveprogram");
 		for (Map<String, String> row : map) {
@@ -75,4 +78,7 @@ static String Jsonbody;
 	public void setProgramStatus(String programStatus) {
 		this.programStatus = programStatus;
 	}
+	
+	
 }
+		
