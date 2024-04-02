@@ -17,7 +17,7 @@ import payload.batchesmissingpayload;
 import payload.batchespojo;
 import utilities.BearerToken;
 
-public class ProgBat_Positive {
+public class ProgBat_PositiveStepDef {
 	static RequestSpecification request = RestAssured.given().urlEncodingEnabled(true).log().all();
 	static Response response;
 	static String batchId;

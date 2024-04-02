@@ -9,6 +9,7 @@ public class URLs {
 	public static String Excelpath = "./src/test/resources/TestData/LoginCredentials2.xlsx";
 	public static String ExcelpathforUpdateUser = "./src/test/resources/TestData/UpdateUser.xlsx";
 	public static String ExcelcreateNewUser = "./src/test/resources/TestData/UpdateUser.xlsx/CreateNewUser";
+	public static String fromexcelforuser = "./src/test/resources/TestData/UserTestsData.xlsx";
 	public static String createUserwithRole = "/users/roleStatus";
 	public static String  getAllUsers = "/users";
 	public static String getAllRoles = "users/roles";
@@ -35,8 +36,8 @@ public class URLs {
 	public static String progwithusers = "/allProgramsWithUsers";
 	public static String putprogramid = "/putprogram/";
 	public static String putprogramname = "/program/";
-	public static String delprogid = "/deletebyprogid/16524";
-	public static String delprogname = "/deletebyprogname/SoftwareTesting236";
+	public static String delprogid = "/deletebyprogid/16540";
+	public static String delprogname = "/deletebyprogname/Team08APIArchitect160772";
 	
 	//Batch module
 	
@@ -52,29 +53,5 @@ public class URLs {
 	public static String invalidpostcreateendpoint="/batches";
 	public static String invalidbatchid="/batches/batchId/";
 
-	//public static String 
 	
-	/*public static String username = "Numpy@gmail.com";
-	public static String password ="userAPI";
-		//public static String BaseUrl = "https://userapi-8877aadaae71.herokuapp.com/uap" ;
-	
-	
-	public  static String Getallusers = "/users";
-		public static String CreateUser = "/createusers";
-		//public static String Excelpath = "./src/test/resources/TestData/testdata.xlsx";
-		public static String GetUserById = "/user/{userId}";
-		public static String GetUserByFirstName = "/users/username/{userFirstName}";
-		public static String UpdateUser = "/updateuser/{userId}";
-		public static String DeleteUserByFirstName = "/deleteuser/username/{userfirstname}";
-		public static String DeleteUserByUserId = "/deleteuser/{userId}\r\n";
-		
-		//Invalid url and endpoint
-		
-		public static String InvalidUrl ="https://userapi-8877aadaae71.herokuapp.com";
-		public static String Invalid_endpoint = "/ab";
-	
-	
-	public static String BaseUrl = "https://reqres.in/";
-	public static String createUser = "api/users/";*/
-	//public static String Excelpath = "./src/test/resources/TestData/restPost.xlsx";
 }

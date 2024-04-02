@@ -5,8 +5,11 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-    features = {"D:\\Keertana SDET Course\\workspace\\Team1_APIPros_RestAssured\\src\\test\\resources\\featurefiles\\a_ProgMod_Positive.feature",
-    "D:\\Keertana SDET Course\\workspace\\Team1_APIPros_RestAssured\\src\\test\\resources\\featurefiles\\b_ProgBat_Positive.feature"},
+   features = {"D:\\Keertana SDET Course\\workspace\\Team1_APIPros_RestAssured\\src\\test\\resources\\featurefiles\\a_ProgMod_Positive.feature",
+  "D:\\Keertana SDET Course\\workspace\\Team1_APIPros_RestAssured\\src\\test\\resources\\featurefiles\\b_ProgBat_Positive.feature",
+  "D:\\Keertana SDET Course\\workspace\\Team1_APIPros_RestAssured\\src\\test\\resources\\featurefiles\\c_UserModule_Postive.feature"},
+    		  
+    
     glue = {"stepdefinition"},
     tags = "", // Tags to include (logical OR)
     		monochrome = true, plugin =  {"pretty","html:target/html folder/html reports.html",

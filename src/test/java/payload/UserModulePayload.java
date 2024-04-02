@@ -8,7 +8,7 @@ import java.util.Map;
 import endpoints.URLs;
 import io.cucumber.core.internal.com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
-import stepdefinition.ExcelReader_Rest;
+
 
 public class UserModulePayload {
 	static String Jsonbody;
@@ -19,7 +19,7 @@ public class UserModulePayload {
 		
 		public static String UserModulePostRequestBody() throws IOException  {
 			
-			List<Map<String, String>>map = ExcelReader_Rest.getData(URLs.ExcelcreateNewUser,"Sheet 4");
+			List<Map<String, String>>map = ExcelReader_Rest.getData(URLs.fromexcelforuser,"newpostuser");
 			for (Map<String, String> row : map) {
 				
 				String usercomments = row.get("userComments");
@@ -33,7 +33,8 @@ public class UserModulePayload {
 				String userpassword = row.get("userpassword");
 				String userLoginEmail = row.get("userLoginEmail");
 				String userMiddleName = row.get("userMiddleName");
-				int userPhoneNumber = Integer.parseInt(row.get("userPhoneNumber"));
+				String userPhoneNumber = row.get("userPhoneNumber");
+				//int userPhoneNumber = Integer.parseInt(row.get("userPhoneNumber"));
 				String roleId = row.get("roleId");
 				String userRoleStatus = row.get("userRoleStatus");
 				String userTimeZone = row.get("userTimeZone");

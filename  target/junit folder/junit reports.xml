@@ -1,122 +1,237 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="14.863" tests="17" skipped="0" failures="0" errors="0">
-<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to create a program with valid endpoint and request body with Authorization" time="3.487">
+<testsuite name="Cucumber" time="26.304" tests="26" skipped="0" failures="4" errors="0">
+<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to create a program with valid endpoint and request body with Authorization" time="5.042">
 <system-out><![CDATA[
 Given UserAdmin creates POST Request for the LMS with request body..........passed
 When UserAdmin sends HTTPS Request and  request Body with endpoint..........passed
 Then UserAdmin receives 201 Created Status with response body...............passed
 ]]></system-out>
 </testcase>
-<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to create a program with missing values in the request body" time="0.744">
+<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to create a program with missing values in the request body" time="0.759">
 <system-out><![CDATA[
 Given UserAdmin creates POST Request for the LMS with request body..........passed
 When UserAdmin sends HTTPS Request and  request Body with endpoint with missing field.passed
 Then UserAdmin receives 500 ok..............................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to retrieve all programs with valid Endpoint" time="0.986">
+<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to retrieve all programs with valid Endpoint" time="0.84">
 <system-out><![CDATA[
 Given UserAdmin creates GET Request for the LMS API.........................passed
 When UserAdmin sends HTTPS Request with endpoint allprograms................passed
 Then UserAdmin receives 200 OK Status with response body....................passed
 ]]></system-out>
 </testcase>
-<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to retrieve a program with valid program ID" time="0.63">
+<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to retrieve a program with valid program ID" time="0.682">
 <system-out><![CDATA[
 Given UserAdmin creates GET Request for the LMS API.........................passed
 When UserAdmin sends HTTPS Request with endpoint programid..................passed
 Then UserAdmin receives 200 OK Status with response body....................passed
 ]]></system-out>
 </testcase>
-<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to retrieve all programs with valid Endpoint" time="0.939">
+<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to retrieve all programs with valid Endpoint" time="1.053">
 <system-out><![CDATA[
 Given UserAdmin creates GET Request for the LMS API.........................passed
 When UserAdmin sends HTTPS Request with endpoint allusers...................passed
 Then UserAdmin receives 200 OK Status with response body....................passed
 ]]></system-out>
 </testcase>
-<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to update a program with valid programID endpoint  and valid request body" time="0.642">
+<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to update a program with valid programID endpoint  and valid request body" time="0.756">
 <system-out><![CDATA[
 Given UserAdmin creates PUT Request for the LMS API endpoint with request Body with mandatory , additional  fields..passed
 When UserAdmin sends HTTPS Request with valid endpoint /putprogram/{programId}.passed
 Then UserAdmin receives 200 OK Status with updated value in response body...passed
 ]]></system-out>
 </testcase>
-<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to update a program with  Valid program Name and request body" time="0.695">
+<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to update a program with  Valid program Name and request body" time="0.737">
 <system-out><![CDATA[
 Given UserAdmin creates PUT Request for the LMS API endpoint with request Body with mandatory , additional  fields..passed
 When UserAdmin sends HTTPS Request with valid endpoint /program/programName.passed
 Then UserAdmin receives 200 OK Status with updated value in response body...passed
 ]]></system-out>
 </testcase>
-<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to update a program status" time="0.698">
+<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to update a program status" time="0.721">
 <system-out><![CDATA[
 Given UserAdmin creates PUT Request for the LMS API endpoint  and  Valid program Name and status.passed
 When UserAdmin sends HTTPS Request with valid endpoint /program/programName.passed
 Then UserAdmin receives 200 OK Status with updated value in response body...passed
 ]]></system-out>
 </testcase>
-<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to delete a program with valid programName" time="0.635">
+<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to delete a program with valid programName" time="0.856">
 <system-out><![CDATA[
 Given UserAdmin creates DELETE Request for the LMS API endpoint  and  valid programName.passed
 When UserAdmin sends HTTPS Request with endpoint delprogname................passed
 Then UserAdmin receives 200 Ok status with message..........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to delete a program with valid program ID" time="0.625">
+<testcase classname="ProgramModule_Postive" name="Check if UserAdmin able to delete a program with valid program ID" time="0.845">
 <system-out><![CDATA[
 Given UserAdmin creates DELETE Request for the LMS API endpoint  and  valid program ID.passed
 When UserAdmin sends HTTPS Request with endpoint delprogramid...............passed
 Then UserAdmin receives 200 Ok status with message..........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Programbatch_Postive" name="Check if Batch Admin able to create a program with valid endpoint and request body with Authorization" time="0.652">
+<testcase classname="Programbatch_Postive" name="Check if Batch Admin able to create a program with valid endpoint and request body with Authorization" time="0.794">
+<failure type="java.lang.AssertionError" message="expected [201] but found [404]">
+<![CDATA[java.lang.AssertionError: expected [201] but found [404]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at org.testng.Assert.assertEquals(Assert.java:1429)
+	at stepdefinition.ProgBat_PositiveStepDef.batch_admin_receives_batch_created_status_with_response_body(ProgBat_PositiveStepDef.java:42)
+	at ✽.Batch Admin receives 201 Batch Created Status with response body.(file:///D:/Keertana%20SDET%20Course/workspace/Team1_APIPros_RestAssured/src/test/resources/featurefiles/b_ProgBat_Positive.feature:8)
+]]>
+</failure>
 <system-out><![CDATA[
 Given Batch Admin creates Batch POST Request for the LMS with request body..passed
 When Batch Admin sends Batch POST HTTPS Request and  request Body with endpoint.passed
-Then Batch Admin receives 201 Batch Created Status with response body.......passed
+Then Batch Admin receives 201 Batch Created Status with response body.......failed
 ]]></system-out>
 </testcase>
-<testcase classname="Programbatch_Postive" name="Check if Batch Admin able to create a program with missing values in the request body" time="0.656">
+<testcase classname="Programbatch_Postive" name="Check if Batch Admin able to create a program with missing values in the request body" time="0.683">
 <system-out><![CDATA[
 Given Batch Admin creates Batch POST Request for the LMS with request body..passed
 When Batch Admin sends Batch POST HTTPS Request and request Body with endpoint with missing field.passed
 Then Batch Admin receives 500 ok for Batch values in req body...............passed
 ]]></system-out>
 </testcase>
-<testcase classname="Programbatch_Postive" name="Check if Batch Admin able to retrieve a batches with valid batch ID" time="0.574">
+<testcase classname="Programbatch_Postive" name="Check if Batch Admin able to retrieve a batches with valid batch ID" time="0.692">
+<failure type="java.lang.AssertionError" message="expected [200] but found [400]">
+<![CDATA[java.lang.AssertionError: expected [200] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at org.testng.Assert.assertEquals(Assert.java:1429)
+	at stepdefinition.ProgBat_PositiveStepDef.batch_admin_receives_ok_status_to_reterive_batches_with_id_with_response_body(ProgBat_PositiveStepDef.java:73)
+	at ✽.Batch Admin receives 200 OK Status to reterive Batches with id with response body(file:///D:/Keertana%20SDET%20Course/workspace/Team1_APIPros_RestAssured/src/test/resources/featurefiles/b_ProgBat_Positive.feature:20)
+]]>
+</failure>
 <system-out><![CDATA[
 Given Batch Admin creates Batch GET Request for the LMS API.................passed
 When Batch Admin sends Batch GET HTTPS Request with endpoint batchId........passed
-Then Batch Admin receives 200 OK Status to reterive Batches with id with response body.passed
+Then Batch Admin receives 200 OK Status to reterive Batches with id with response body.failed
 ]]></system-out>
 </testcase>
-<testcase classname="Programbatch_Postive" name="Check if Batch Admin able to retrieve all batches with valid batchname" time="0.596">
+<testcase classname="Programbatch_Postive" name="Check if Batch Admin able to retrieve all batches with valid batchname" time="0.621">
 <system-out><![CDATA[
 Given Batch Admin creates Batch GET Request for the LMS API.................passed
 When Batch Admin sends Batch GET HTTPS Request with endpoint batchName......passed
 Then Batch Admin receives 200 OK Status with response body..................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Programbatch_Postive" name="Check if Batch Admin able to retrieve all batches with valid programid" time="0.668">
+<testcase classname="Programbatch_Postive" name="Check if Batch Admin able to retrieve all batches with valid programid" time="0.643">
 <system-out><![CDATA[
 Given Batch Admin creates Batch GET Request for the LMS API.................passed
 When Batch Admin sends Batch GET HTTPS Request with endpoint programId......passed
 Then Batch Admin receives 200 OK Status with response body..................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Programbatch_Postive" name="Check if Batch Admin able to update  batches with valid batchid" time="0.602">
+<testcase classname="Programbatch_Postive" name="Check if Batch Admin able to update  batches with valid batchid" time="0.627">
+<failure type="java.lang.AssertionError" message="expected [200] but found [400]">
+<![CDATA[java.lang.AssertionError: expected [200] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at org.testng.Assert.assertEquals(Assert.java:1429)
+	at stepdefinition.ProgBat_PositiveStepDef.batch_admin_receives_ok_status_for_updated_batches_with_response_body(ProgBat_PositiveStepDef.java:102)
+	at ✽.Batch Admin receives 200 OK Status for updated Batches with response body.(file:///D:/Keertana%20SDET%20Course/workspace/Team1_APIPros_RestAssured/src/test/resources/featurefiles/b_ProgBat_Positive.feature:38)
+]]>
+</failure>
 <system-out><![CDATA[
 Given Batch Admin creates Batch PUT Request for the LMS API.................passed
 When Batch Admin sends Batch PUT HTTPS Request with endpoint batchId and request.passed
-Then Batch Admin receives 200 OK Status for updated Batches with response body..passed
+Then Batch Admin receives 200 OK Status for updated Batches with response body..failed
 ]]></system-out>
 </testcase>
-<testcase classname="Programbatch_Postive" name="Check if Batch Admin able to delete batches with valid batchid" time="0.702">
+<testcase classname="Programbatch_Postive" name="Check if Batch Admin able to delete batches with valid batchid" time="0.629">
+<failure type="java.lang.AssertionError" message="expected [200] but found [400]">
+<![CDATA[java.lang.AssertionError: expected [200] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at org.testng.Assert.assertEquals(Assert.java:1429)
+	at stepdefinition.ProgBat_PositiveStepDef.batch_admin_receives_ok_status_with_response_body(ProgBat_PositiveStepDef.java:120)
+	at ✽.Batch Admin receives 200 OK Status with response body.(file:///D:/Keertana%20SDET%20Course/workspace/Team1_APIPros_RestAssured/src/test/resources/featurefiles/b_ProgBat_Positive.feature:44)
+]]>
+</failure>
 <system-out><![CDATA[
 Given Batch Admin creates Batch DELETE Request for the LMS API..............passed
 When Batch Admin sends Batch DELETE HTTPS Request with endpoint id..........passed
-Then Batch Admin receives 200 OK Status with response body..................passed
+Then Batch Admin receives 200 OK Status with response body..................failed
+]]></system-out>
+</testcase>
+<testcase classname="UserModule" name="Check if administrator is able to create a new administrator with valid endpoint and request body with mandatory fields-Post" time="1.164">
+<system-out><![CDATA[
+Given administrator creates POST request with all mandatory fields..........passed
+When administrator sends HTTPS Request with endpoint........................passed
+Then administrator receives 201 Created Status with response body...........passed
+]]></system-out>
+</testcase>
+<testcase classname="UserModule" name="Check if admin is able to retreive all the Users" time="1.144">
+<system-out><![CDATA[
+Given administrator creates GET Request.....................................passed
+When administrator sends HTTPS Request with GET All Users endpoint..........passed
+Then administrator receives 200 OK..........................................passed
+]]></system-out>
+</testcase>
+<testcase classname="UserModule" name="Check if admin is able to retreive all the available roles-Get all roles" time="1.387">
+<system-out><![CDATA[
+Given administrator creates GET Request.....................................passed
+When administrator sends HTTPS Request with GET All Roles endpoint..........passed
+Then administrator receives 200 OK..........................................passed
+]]></system-out>
+</testcase>
+<testcase classname="UserModule" name="Check if admin able to retrieve User Information By User Id" time="0.969">
+<system-out><![CDATA[
+Given administrator creates GET Request.....................................passed
+When administrator sends HTTPS Request with valid endpoint..................passed
+Then administrator receives 200 OK Status with response body................passed
+]]></system-out>
+</testcase>
+<testcase classname="UserModule" name="Check if admin able to retrieve all administrators with roles" time="0.889">
+<system-out><![CDATA[
+Given administrator creates GET Request.....................................passed
+When administrator sends HTTPS Request with roles endpoint..................passed
+Then administrator receives 200 OK Status with response body................passed
+]]></system-out>
+</testcase>
+<testcase classname="UserModule" name="Check if admin is able to get count of active and inactive administrators - Get Count of all active and inactive admins" time="0.595">
+<system-out><![CDATA[
+Given administrator creates GET Request.....................................passed
+When administrator sends HTTPS Request with count of active and inactive user endpoint.passed
+Then administrator receives 200 OK..........................................passed
+]]></system-out>
+</testcase>
+<testcase classname="UserModule" name="Check if admin is able to get Get All Active Users" time="0.814">
+<system-out><![CDATA[
+Given administrator creates GET Request.....................................passed
+When administrator sends HTTPS Request with activeUsers endpoint............passed
+Then administrator receives 200 OK..........................................passed
+]]></system-out>
+</testcase>
+<testcase classname="UserModule" name="Check if admin is able to retreive administrators by valid role ID -Get administrator by role ID" time="0.79">
+<system-out><![CDATA[
+Given administrator creates GET Request.....................................passed
+When administrator sends HTTPS Request with RoleID endpoint.................passed
+Then administrator receives 200 OK..........................................passed
+]]></system-out>
+</testcase>
+<testcase classname="UserModule" name="Check if admin is able to retrieve all administrators with filters - Get administrator with filters" time="1.022">
+<system-out><![CDATA[
+Given administrator creates GET Request.....................................passed
+When administrator sends HTTPS Request with role ID V2......................passed
+Then administrator receives 200 OK..........................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

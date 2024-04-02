@@ -28,6 +28,7 @@ public class ExcelReader_Rest {
     private static List<Map<String, String>> readSheet(Sheet sheet) {
         int startRow = 1; // Index of the first row (row 1 in Excel)
         int endRow = sheet.getLastRowNum(); // Index of the last row
+        System.out.println("last " +endRow);
 
         List<Map<String, String>> excelRows = new ArrayList<>();
         DataFormatter dataFormatter = new DataFormatter();

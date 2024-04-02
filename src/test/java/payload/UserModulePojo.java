@@ -12,7 +12,7 @@
 	  private String userLocation;
 	  private UserModuleUserLoginPojo userLogin;
 	  private String userMiddleName;
-	  private int userPhoneNumber;
+	  private String userPhoneNumber;
 	 
 	private List<UserModuleUserRoleMapsPojo> userRoleMaps;
 	  private String userTimeZone;
@@ -74,11 +74,11 @@
 	public void setUserMiddleName(String userMiddleName) {
 		this.userMiddleName = userMiddleName;
 	}
-	public int getUserPhoneNumber() {
+	public String getUserPhoneNumber() {
 		return userPhoneNumber;
 	}
-	public void setUserPhoneNumber(int userPhoneNumber) {
-		this.userPhoneNumber = userPhoneNumber;
+	public void setUserPhoneNumber(String userPhoneNumber2) {
+		this.userPhoneNumber = userPhoneNumber2;
 	}
 		
 	
