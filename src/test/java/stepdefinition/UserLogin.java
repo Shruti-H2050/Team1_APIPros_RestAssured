@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.testng.Assert;
+
+
 import endpoints.URLs;
 import io.cucumber.core.internal.com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import io.cucumber.java.en.Given;
@@ -15,52 +18,120 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
+import payload.Pojo;
 
 public class UserLogin {
 
 	private String BaseURL;
 	private String loginEndpoint;
 	private String requestBody;
-	RequestSpecification request = RestAssured.given();
+	Response response;
+	//RequestSpecification request = RestAssured.given();
 	
 	List<String> allResponses = new ArrayList<String>();	
 	
-	@Given("User is provided with Base URL and Request body from the {string}")
-	public void user_is_provided_with_base_url_and_request_body_from_the(String string) throws InvalidFormatException, IOException {
+	@Given("Admin creates request with valid credentials")
+	public void admin_creates_request_with_valid_credentials() throws IOException {
 		
-		List<Map<String, String>>map = ExcelReader_Rest.getData(URLs.Excelpath, "Sheet 1");
-		for (Map<String, String> row : map) {
-			String password = row.get("password");
-			String loginEmailid = row.get("userLoginEmailId");
-			String payload = "{\n"
-					+ "  \"password\": \"string\",\n"
-					+ "  \"userLoginEmailId\": \"string\"\n"
-					+ "}\n"
-					+ "";
-			request.header("Content-Type","application/json");
-			Response responseGetGeneratedToken = request.baseUri(URLs.BaseURL).basePath(URLs.loginEndpoint).contentType(ContentType.JSON).body(payload).post();
-			responseGetGeneratedToken.prettyPrint();
-			
-			//*****Must add JSON-PATH dependency in pom******
-			String jsonString = responseGetGeneratedToken.getBody().asString();
-			String tokenGenerated = JsonPath.from(jsonString).get("token");
-			request.header("Authorization","Bearer "+tokenGenerated).header("Content-Type","application/json");
-			
-			
-			//allResponses.add(responseBody);
-			//System.out.println("Response " + row + ":");
-			//System.out.println(responseBody);
 		
-	}
-	}
+		//RequestSpecification request = RestAssured.given();
+		
+			
+			List<Map<String, String>>map = ExcelReader_Rest.getData(URLs.Excelpath, "Sheet 4 - Table 1-1");
+			for (Map<String, String> row : map) {
+				String mypwd = row.get("password");
+				String userLoginEmailId = row.get("userLoginEmailId");
+				RestAssured.baseURI = URLs.BaseURL;
+				RequestSpecification request = RestAssured.given();
+					String userInfoJson = "{" +
+							"\"password\": \"" + mypwd + "\"," +
+							"\"userLoginEmailId\": \"" + userLoginEmailId + "\"}" ;
+							//"}";
+					System.out.println(userInfoJson);
+				
+				
+				request.header("Content-Type","application/json");
+				Response responseFromGenerateToken = request.body(userInfoJson).post(URLs.loginEndpoint);
+				responseFromGenerateToken.prettyPrint();
+				
+				//Extracting token from response
+				String jsonString = responseFromGenerateToken.getBody().asString();
+				String tokenGenerated = JsonPath.from(jsonString).get("token");
+				request.header("Authorization","Bearer "+tokenGenerated).header("Content-Type","application/json");
+			}		
+		
+		/*
+		 * response= RestAssured.given().baseUri(URLs.BaseURL)
+		 * .header("Content-Type","application/json") .body(Pojo.logincred()) .when()
+		 * .post(URLs.loginEndpoint); String jsonString = response.getBody().asString();
+		 * static String tokenGenerated = JsonPath.from(jsonString).get("token");
+		 */
+		
+		//String responseinStringform=response.asString();
+		
+		//	System.out.println(response.asString());
 
-	@When("user send the Post request")
-	public void user_send_the_post_request() {
+			//JsonPath jsonpath = new JsonPath(responseinStringform, null);
+			//String responsestatus = jsonpath.get("status");
+		//	System.out.println(jsonpath.get("token").toString());
+
+
+
+
+
+
+		
+		
+			/*
+			 * RestAssured.baseURI = URLs.BaseURL; RequestSpecification request =
+			 * RestAssured.given(); request.header("Content-Type","application/json");
+			 * Response responseFromGenerateToken =
+			 * request.body(Pojo.logincred()).post(URLs.loginEndpoint);
+			 * 
+			 * responseFromGenerateToken.prettyPrint();
+			 * 
+			 * 
+			 * 
+			 * int statusCode = responseFromGenerateToken.getStatusCode();
+			 * System.out.println(statusCode); //Extracting token from response String
+			 * jsonString = responseFromGenerateToken.getBody().asString(); String
+			 * tokenGenerated = JsonPath.from(jsonString).get("token");
+			 * 
+			 * request.header("Authorization","Bearer "+tokenGenerated).header(
+			 * "Content-Type","application/json"); allResponses.add(jsonString);
+			 * System.out.println(allResponses);
+			 */
+		}
+		
+	
+	
+
+	@When("Admin calls Post Https method  with valid endpoint")
+	public void admin_calls_post_https_method_with_valid_endpoint() {
 	   
 	}
 
-	@Then("user validate the response")
-	public void user_validate_the_response() {
-	   
+	@Then("Admin receives {int} created with auto generated token")
+	public void admin_receives_created_with_auto_generated_token(Integer int1) {
+		
+		
+		
+		//int statusCode=	responseFromGenerateToken.getStatusCode();
+		
+		
+		//int statusCode=RestAssured.given().get().statusCode();
+		//System.out.println(statusCode);
+		//Assert.assertEquals(statusCode ,200);
+		//System.out.println("Validation Sucessful");
+		//String statusCode = null;
+		// RestAssured.responseSpecification.statusCode(200);
+		//int statusCode = response.then().extract().statusCode();
+		//Assert.assertEquals(statusCode ,200);
+		//System.out.println(RestAssured.responseSpecification);
+		/*
+		 * int statuscode = response.ge if(statuscode == 201) {
+		 * response.getStatusLine(); }
+		 */
 	}
 }
